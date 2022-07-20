@@ -1,0 +1,20 @@
+<h1>All Articles</h1>
+
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Tittle</th>
+    <th>Description</th>
+    <th>Link</th>
+  </tr>
+  <% @articles.each do |artigo| %>
+    <tr>
+        <td><%= artigo.id %></td>
+        <td><%= artigo.tittle %></td>
+        <td><%= artigo.description %></td>
+        <td> <a href="http://0.0.0.0:3000/articles/<%= artigo.id %>">artigo</a></td>
+    </tr>
+  <% end %>
+</table>
+
+
