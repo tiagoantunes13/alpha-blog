@@ -3,3 +3,6 @@
 
 <p><strong>Tittle: </strong><%= @article.tittle %></p>
 <p><strong>Description: </strong><%= @article.description %></p>
+<%= link_to 'remove', article_path(@article), data: { "turbo-method": :delete, turbo_confirm:"Are you sure?" }%>
+<p></p>
+<%= link_to 'Página Inicial', articles_path %>

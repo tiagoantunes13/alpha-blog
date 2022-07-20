@@ -7,16 +7,20 @@
     <th>Description</th>
     <th>Link</th>
     <th>Edit</th>
+    <th>Remove</th>
   </tr>
   <% @articles.each do |artigo| %>
     <tr>
         <td><%= artigo.id %></td>
         <td><%= artigo.tittle %></td>
         <td><%= artigo.description %></td>
-        <td> <a href="http://0.0.0.0:3000/articles/<%= artigo.id %>">artigo</a></td>
-        <td><a href="http://0.0.0.0:3000/articles/<%= artigo.id %>/edit">editar</a></td>
+        <td><%= link_to 'artigo', article_path(artigo)%></td>
+        <td><%= link_to 'editar', edit_article_path(artigo) %></td>
+        <td><%= link_to 'delete', article_path(artigo), data: { "turbo-method": :delete , turbo_confirm:"Are you sure?" } %></td>
+
     </tr>
   <% end %>
 </table>
+<%= link_to 'Create new Article', new_article_path %>
 
 
