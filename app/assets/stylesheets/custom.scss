@@ -1,0 +1,27 @@
+
+
+.navbar{
+  background-color: black !important;
+}
+.nav-link{
+  color: white !important;
+}
+
+#logo{
+  float: left;
+  font-size: 1.7rem;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  font-weight: bold;
+}
+
+#home-container{
+  margin: 25px;
+}
+
+#page-content{
+  flex: 1 0 auto;
+  background-color: lightgrey;
+}
+
