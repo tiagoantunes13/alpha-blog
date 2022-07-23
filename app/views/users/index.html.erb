@@ -1,4 +1,7 @@
 <h1 class="text-center pt-4">All Users</h1>
+<div class="flickr_pagination">
+  <%= will_paginate @articles, :container => false %>
+</div>
 
 <div class="container">
   <% @users.each do |user| %>
@@ -30,6 +33,13 @@
     </div>
   <% end %>
 </div>
-<%= link_to 'Create new Article', new_article_path %>
+
+
+<div class="flickr_pagination mb-5">
+  <%= will_paginate @articles, :container => false %>
+</div>
+<div class="mb-5">
+  <%= link_to 'Create new Article', new_article_path%>
+</div>
 
 
