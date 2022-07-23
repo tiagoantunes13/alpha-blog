@@ -1,0 +1,33 @@
+
+<h1 class="text-center mt-4">Profile</h1>
+
+<%= gravatar_for @user, size: 100 %>
+
+<div class="container">
+  <% @articles.each do |artigo| %>
+  <div class="row justify-content-md-center">
+    <div class="col-8 mt-4">
+      <div class="card text-center shadow mb-5 bg-white rounded">
+        <div class="card-header">
+          <i>by <%= artigo.user.username %></i>
+        </div>
+        <div class="card-body">
+          <h5 class="card-title"><%=  artigo.tittle%></h5>
+          <p class="card-text"><%=simple_format(artigo.description) %></p>
+          <%= link_to "Edit", edit_article_path(artigo), class:"btn btn-outline-info" %>
+          <%= link_to "Delete", article_path(artigo), data: { "turbo-method": :delete, turbo_confirm:"Are you sure?" } ,class:"btn btn-outline-danger" %>
+        </div>
+        <div class="card-footer text-muted">
+          <small>Created <%= time_ago_in_words(artigo.created_at) %> ago,
+            edited <%= time_ago_in_words(artigo.updated_at) %> ago
+          </small>
+        </div>
+      </div>
+    </div>
+  </div>
+    <% end %>
+</div>
+<%= link_to 'Página Inicial', articles_path %>
+
+
+
