@@ -43,6 +43,7 @@
     <orderEntry type="library" scope="PROVIDED" name="activesupport (v7.0.3.1, RVM: ruby-3.0.0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="addressable (v2.8.0, RVM: ruby-3.0.0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="autoprefixer-rails (v10.4.7.0, RVM: ruby-3.0.0) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="bcrypt (v3.1.18, RVM: ruby-3.0.0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="bindex (v0.8.1, RVM: ruby-3.0.0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="bootsnap (v1.12.0, RVM: ruby-3.0.0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="bootstrap (v5.2.0, RVM: ruby-3.0.0) [gem]" level="application" />
