@@ -6,7 +6,7 @@
       <div class="col-8 mt-4">
     <div class="card text-center shadow mb-5 bg-white rounded">
       <div class="card-header">
-        <i> by <%= artigo.user.username %> </i>
+        <i> by <%= link_to artigo.user.username, user_path(artigo.user) %> </i>
       </div>
       <div class="card-body">
         <h5 class="card-title"><%= link_to artigo.tittle, article_path(artigo), class: "text-decoration-none text-success"%></h5>
