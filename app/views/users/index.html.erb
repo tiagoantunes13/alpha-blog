@@ -21,9 +21,13 @@
 
 
             <%= link_to "View", user_path(user), class:"btn btn-outline-success" %>
-            <% if logged_in? && current_user == user %>
+            <% if logged_in? && (current_user == user) %>
             <%= link_to "Edit", edit_user_path(user), class:"btn btn-outline-info" %>
             <% end %>
+              <% if logged_in? && (current_user == user || current_user.admin?) %>
+                <%= link_to "Delete", user_path(user), data: { "turbo-method": :delete, turbo_confirm:"Are you sure?" } , class:"btn btn-outline-danger" %>
+
+          <% end %>
               </div>
           <div class="card-footer text-muted">
             <small>
