@@ -21,8 +21,10 @@
 
 
             <%= link_to "View", user_path(user), class:"btn btn-outline-success" %>
+            <% if logged_in? && current_user == user %>
             <%= link_to "Edit", edit_user_path(user), class:"btn btn-outline-info" %>
-            </div>
+            <% end %>
+              </div>
           <div class="card-footer text-muted">
             <small>
               Joined <%= time_ago_in_words(user.created_at) %> ago

@@ -1,10 +1,11 @@
 
 <h1 class="text-center mt-4">Profile</h1>
 <%= gravatar_for @user, size: 100 %>
+<% if logged_in? && current_user == @user %>
 <div class="text-center mt-4">
   <%= link_to 'Editar', edit_user_path(@user), class:"btn btn-success"%>
 </div>
-
+<% end %>
 <div class="flickr_pagination mt-3">
   <%= will_paginate @articles, :container => false %>
 </div>
@@ -19,8 +20,13 @@
         <div class="card-body">
           <h5 class="card-title"><%=  artigo.tittle%></h5>
           <p class="card-text"><%=simple_format(artigo.description) %></p>
-          <%= link_to "Edit", edit_article_path(artigo), class:"btn btn-outline-info" %>
+          <%= link_to "View", article_path(artigo), class:"btn btn-outline-info" %>
+
+          <% if logged_in? && current_user == artigo.user %>
+
+        <%= link_to "Edit", edit_article_path(artigo), class:"btn btn-outline-info" %>
           <%= link_to "Delete", article_path(artigo), data: { "turbo-method": :delete, turbo_confirm:"Are you sure?" } ,class:"btn btn-outline-danger" %>
+        <% end %>
         </div>
         <div class="card-footer text-muted">
           <small>Created <%= time_ago_in_words(artigo.created_at) %> ago,

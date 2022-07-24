@@ -9,11 +9,7 @@ module ApplicationHelper
     image_tag(img, alt:user.username, size: size, class: "rounded-circle mx-auto d-block")
   end
 
-  def current_user
-    @current_user ||= User.find(session[:user_id]) if session[:user_id]
-  end
 
-  def logged_in?
-    !!current_user
-  end
+
+
 end
