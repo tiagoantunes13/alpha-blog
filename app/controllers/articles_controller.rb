@@ -20,6 +20,8 @@ class ArticlesController < ApplicationController
   end
 
   def create
+    p "ASDASDASDASDAS"
+    p params
     @article = Article.new(set_permit)
     @article.user = current_user
     if @article.save
@@ -55,7 +57,7 @@ class ArticlesController < ApplicationController
   end
 
   def set_permit
-    params.require(:article).permit(:tittle, :description)
+    params.require(:article).permit(:tittle, :description, category_ids: [])
   end
 
   def require_same_user

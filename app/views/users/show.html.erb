@@ -16,6 +16,11 @@
       <div class="card text-center shadow mb-5 bg-white rounded">
         <div class="card-header">
           <i>by <%= artigo.user.username %></i>
+          <div>
+            <% artigo.categories.each do |categoria| %>
+              <%= link_to categoria.name, category_path(categoria) ,class:"badge rounded-pill bg-success" %>
+            <% end %>
+          </div>
         </div>
         <div class="card-body">
           <h5 class="card-title"><%=  artigo.tittle%></h5>

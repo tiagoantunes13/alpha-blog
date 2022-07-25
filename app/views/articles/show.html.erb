@@ -9,6 +9,12 @@
 
               <i>by <%= @article.user.username %></i>
               <%= link_to gravatar_for(@article.user), user_path(@article.user)%>
+
+            <div>
+              <% @article.categories.each do |categoria| %>
+                <%= link_to categoria.name, category_path(categoria) ,class:"badge rounded-pill bg-success mt-2" %>
+              <% end %>
+            </div>
             </div>
             <div class="card-body">
               <p class="card-text"><%=simple_format(@article.description) %></p>

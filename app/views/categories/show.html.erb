@@ -1,1 +1,55 @@
-<%= @category.name%>
+
+
+
+<h1 class="text-center pt-4"><%= @category.name%></h1>
+<% if logged_in? && current_user.admin? %>
+  <div class="text-center">
+    <%= link_to "Edit Category", edit_category_path, class:"btn btn-outline-info" %>
+  </div>
+<% end %>
+<div class="flickr_pagination">
+  <%= will_paginate @articles, :container => false %>
+</div>
+
+<div class="container">
+  <% @articles.each do |artigo| %>
+    <div class="row justify-content-md-center">
+      <div class="col-8 mt-4">
+        <div class="card text-center shadow mb-5 bg-white rounded">
+          <div class="card-header">
+            <i> by <%= link_to artigo.user.username, user_path(artigo.user) %> </i>
+            <div>
+              <% artigo.categories.each do |categoria| %>
+                <%= link_to categoria.name, category_path(categoria) ,class:"badge rounded-pill bg-success" %>
+              <% end %>
+            </div>
+          </div>
+          <div class="card-body">
+            <h5 class="card-title"><%= link_to artigo.tittle, article_path(artigo), class: "text-decoration-none text-success"%></h5>
+            <p class="card-text"><%=artigo.description %></p>
+            <%= link_to "View", article_path(artigo), class:"btn btn-outline-success" %>
+            <% if logged_in? && (current_user == artigo.user || current_user.admin?) %>
+              <%= link_to "Edit", edit_article_path(artigo), class:"btn btn-outline-info" %>
+              <%= link_to "Delete", article_path(artigo), data: { "turbo-method": :delete, turbo_confirm:"Are you sure?" } ,class:"btn btn-outline-danger" %>
+            <% end %>
+          </div>
+          <div class="card-footer text-muted">
+            <small>Created <%= time_ago_in_words(artigo.created_at) %> ago,
+              edited <%= time_ago_in_words(artigo.updated_at) %> ago
+            </small>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+
+<div class="flickr_pagination mb-5">
+  <%= will_paginate @articles, :container => false %>
+</div>
+<div class="mb-5">
+  <%= link_to 'Create new Article', new_article_path%>
+</div>
+
+
